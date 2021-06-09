@@ -1,0 +1,24 @@
+@model Dotnet5.MVC.CRUD.EF.Data.Entities.Gadgets
+
+<div>
+    <form aps-action="create" method="post">
+        <div class="mb-3">
+            <label for="txtProductName" class="form-label">Product Name</label>
+            <input asp-for="ProductName" type="text" class="form-control" id="txtProductName" >
+        </div>
+        <div class="mb-3">
+            <label for="txtBrand" class="form-label">Brand</label>
+            <input asp-for="Brand" type="text" class="form-control" id="txtBrand" >
+        </div>
+        <div class="mb-3">
+            <label for="txtCost" class="form-label">Cost</label>
+            <input asp-for="Cost" type="text" class="form-control" id="txtCost" >
+        </div>
+        <div class="mb-3">
+            <label for="txtType" class="form-label">Type</label>
+            <input asp-for="Type" type="text" class="form-control" id="txtType" >
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

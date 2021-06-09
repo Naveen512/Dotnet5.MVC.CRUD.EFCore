@@ -1,0 +1,50 @@
+@model GadgetsContainerVm
+<div>
+    <a href="/gadgets/create" class="btn btn-primary">Create</a>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Type</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AllGadgets)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.ProductName</td>
+                    <td>@item.Brand</td>
+                    <td>@item.Cost</td>
+                    <td>@item.Type</td>
+                    <td>
+                        <a class="btn btn-primary" href='@($"edit?id={@item.Id}")'>Edit</a>|
+                        <button class="btn btn-danger" type="button" onclick="deleteGadget(@item.Id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <h4>Are your sure, you want to delete?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form method="POST" id="deleteForm">
+        <button type="submit" class="btn btn-primary">Delete</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
